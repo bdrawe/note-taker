@@ -1,4 +1,5 @@
 const express = require('express');
+const PORT = process.env.PORT || 3001;
 const app = express();
 const { notes } = require("./data/db.json");
 
@@ -6,8 +7,8 @@ app.get("/api/notes", (req, res) => {
     res.json(notes);
 });
 
-app.listen(3001, ()=> {
-    console.log("Your app is now listening to Port Number: 3001");
+app.listen(PORT, ()=> {
+    console.log(`Your app is now listening to Port Number: ${PORT}`);
 })
 
 
