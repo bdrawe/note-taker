@@ -38,18 +38,19 @@ function deleteNote(id, notesArray) {
         if(id === notesArray[i].id) {
             notesArray.splice(i,1);
             fs.writeFileSync(
-                path.join(__dirname, '../Develop/db/db.json'),
+                path.join(__dirname, "./data/db.json"),
                 JSON.stringify({notes: notesArray}, null, 2)
             );
         }
     }
     return false;
-   };
+};
 
 
 app.get("/api/notes", (req, res) => {
     res.json(notes);
 });
+
 app.post("/api/notes", (req, res) => {
     req.body.id = notes.length.toString();
 
@@ -64,14 +65,16 @@ app.post("/api/notes", (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.html"));
 });
+
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
+
 app.delete('/notes/:id', (req, res)=> {
     deleteNote(req.params.id, notes);
     let results = notes;
     res.json(results);
- });
+});
 
 app.listen(PORT, ()=> {
     console.log(`Your app is now listening to Port Number: ${PORT}`);

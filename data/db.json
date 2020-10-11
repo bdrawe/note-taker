@@ -1,16 +1,6 @@
 {
   "notes": [
     {
-      "title": "Test Title",
-      "text": "Test text",
-      "id": "test_id"
-    },
-    {
-      "title": "This is the second notes",
-      "text": "Please I hope this works",
-      "id": "01"
-    },
-    {
       "title": "Third Note",
       "text": "This is the third one",
       "id": "2"
@@ -24,6 +14,11 @@
       "title": "Lets try this",
       "text": "Heyo!",
       "id": "4"
+    },
+    {
+      "title": "Hello Lets give this a try",
+      "text": "this is a new note!",
+      "id": "5"
     }
   ]
 }
