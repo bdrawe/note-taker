@@ -1,3 +1,4 @@
+const { notStrictEqual } = require('assert');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -32,6 +33,18 @@ function validateNewNote(note){
     return true;
     
 }
+function deleteNote(id, notesArray) {
+    for (let i = 0; i < notesArray.length; i++) {
+        if(id === notesArray[i].id) {
+            notesArray.splice(i,1);
+            fs.writeFileSync(
+                path.join(__dirname, '../Develop/db/db.json'),
+                JSON.stringify({notes: notesArray}, null, 2)
+            );
+        }
+    }
+    return false;
+   };
 
 
 app.get("/api/notes", (req, res) => {
@@ -54,6 +67,11 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
+app.delete('/notes/:id', (req, res)=> {
+    deleteNote(req.params.id, notes);
+    let results = notes;
+    res.json(results);
+ });
 
 app.listen(PORT, ()=> {
     console.log(`Your app is now listening to Port Number: ${PORT}`);
