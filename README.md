@@ -15,7 +15,7 @@ This is a simple note taking app that lets you write down and save your ideas.
  - Node.js
   
 ## Installation
-Clone this repo and then in your terminal run 'code'npm i'code' and then navigate to your local host to view this application
+Clone this repo and then in your terminal run `code` npm i `code` and then navigate to your local host to view this application
 
 ## Visuals
 ![first-visual](./images/screenshot-1.png)
