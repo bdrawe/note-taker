@@ -72,8 +72,8 @@ app.get('/notes', (req, res) => {
 
 app.delete('/notes/:id', (req, res)=> {
     deleteNote(req.params.id, notes);
-    let results = notes;
-    res.json(results);
+    // let results = notes;
+    res.json(notes);
 });
 
 app.listen(PORT, ()=> {
