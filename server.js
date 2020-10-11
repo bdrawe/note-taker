@@ -12,6 +12,7 @@ app.use(express.static('public'));
 
 function createNewNote(body, noteArray){
     const note = body;
+    //creating a new note a pushes it into the array. 
     noteArray.push(note)
     fs.writeFileSync(
         path.join(__dirname, './data/db.json'),
@@ -21,6 +22,7 @@ function createNewNote(body, noteArray){
     return note;
 }
 function validateNewNote(note){
+    //this will go through each key value pair to see the type of each of them.
     if(!note.title || typeof note.title !== "string"){
         return false;
     }
@@ -72,7 +74,6 @@ app.get('/notes', (req, res) => {
 
 app.delete('/notes/:id', (req, res)=> {
     deleteNote(req.params.id, notes);
-    // let results = notes;
     res.json(notes);
 });
 
