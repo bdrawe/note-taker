@@ -4,11 +4,6 @@
         "title": "Test Title",
         "text": "Test text",
         "id": "test_id"
-    },
-    {
-        "title":"Hello",
-        "text":"Please Work",
-        "id":"01"
     }
 ]
 }
